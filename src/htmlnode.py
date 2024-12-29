@@ -29,6 +29,8 @@ class LeafNode(HTMLNode):
             raise ValueError("A LeafNode should have a value")
         if self.tag is None or self.tag == "":
             return f"{self.value}"
+        if self.tag == "blockquote" or self.tag == "code":
+            return f"<{self.tag}{self.props_to_html()}>{self.value.replace("\n", "<br/>")}</{self.tag}>"
         return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"
 
     def __repr__(self):
@@ -47,6 +49,8 @@ class ParentNode(HTMLNode):
         children_html = ""
         for child in self.children:
             children_html += child.to_html()
+        if self.tag == "blockquote" or self.tag == "code":
+            children_html = children_html.replace("\n", "<br/>")
         return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"
 
     def __repr__(self):
