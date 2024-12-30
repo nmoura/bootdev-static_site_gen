@@ -1,13 +1,8 @@
-import shutil
-
-
-def copy_static_to_public():
-    shutil.rmtree('./public', ignore_errors=True)
-    shutil.copytree('./static', './public')
+from copy_static_content import copy_static_content
 
 
 def main():
-    copy_static_to_public()
+    copy_static_content()
 
 
 if __name__ == '__main__':
