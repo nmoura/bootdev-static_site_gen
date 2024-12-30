@@ -1,9 +1,13 @@
-from textnode import TextType, TextNode
+import shutil
+
+
+def copy_static_to_public():
+    shutil.rmtree('./public', ignore_errors=True)
+    shutil.copytree('./static', './public')
 
 
 def main():
-    myobj = TextNode("This is a text node", TextType.BOLD, "https://www.boot.dev")
-    print(myobj)
+    copy_static_to_public()
 
 
 if __name__ == '__main__':
