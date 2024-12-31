@@ -96,12 +96,12 @@ def __paragraph_block_to_html_nodes(md_paragraph):
 
 
 def __code_block_to_html_nodes(md_code):
-    cleaned_md_code = re.sub(r'(^```|```$)', '', md_code)
+    cleaned_md_code = re.sub(r'(^```|```$)', '', md_code).strip()
     return ParentNode("pre", [LeafNode("code", cleaned_md_code, None)], None)
 
 
 def __quote_block_to_html_nodes(md_quote):
-    cleaned_md_quote = re.sub(r'>(\s+)?', '', md_quote)
+    cleaned_md_quote = re.sub(r'>(\s+)?', '', md_quote).strip()
     return __build_node_tree_from_text(cleaned_md_quote, "blockquote")
 
 

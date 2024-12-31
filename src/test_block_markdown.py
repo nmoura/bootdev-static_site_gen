@@ -183,7 +183,7 @@ an unordered list of nothing:
 """
         html_str = markdown_to_html_node(markdown_str).to_html()
         self.assertEqual(
-            "<div><h1>heading level 1</h1><p>Some text paragraph</p><pre><code><br/>import pprint<br/><br/>print('hello world')<br/><br/><br/>def dosomething(args):<br/>    print('nah')<br/><br/><br/>def donothing(args):<br/>    print('cmon')<br/></code></pre><ol><li>item 1</li><li>item 2</li><li><b>bolded item 3</b></li></ol><p>an unordered list of nothing:</p><ul><li>bla</li><li>ble</li><li>bleia</li></ul></div>",
+            "<div><h1>heading level 1</h1><p>Some text paragraph</p><pre><code>import pprint<br/><br/>print('hello world')<br/><br/><br/>def dosomething(args):<br/>    print('nah')<br/><br/><br/>def donothing(args):<br/>    print('cmon')</code></pre><ol><li>item 1</li><li>item 2</li><li><b>bolded item 3</b></li></ol><p>an unordered list of nothing:</p><ul><li>bla</li><li>ble</li><li>bleia</li></ul></div>",
             html_str
         )
 
@@ -203,7 +203,7 @@ def donothing(args):
 ```"""
         html_str = markdown_to_html_node(markdown_str).to_html()
         self.assertEqual(
-            "<div><pre><code><br/>import pprint<br/><br/>print('hello world')<br/><br/><br/>def dosomething(args):<br/>    print('nah')<br/><br/><br/>def donothing(args):<br/>    print('cmon')<br/></code></pre></div>",
+            "<div><pre><code>import pprint<br/><br/>print('hello world')<br/><br/><br/>def dosomething(args):<br/>    print('nah')<br/><br/><br/>def donothing(args):<br/>    print('cmon')</code></pre></div>",
             html_str
         )
 
